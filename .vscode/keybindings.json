@@ -1,0 +1,6 @@
+{
+  "args": "uuidgenToClipboard",
+  "command": "workbench.action.tasks.runTask",
+  "key": "ctrl+shift+c",
+  "when": "editorTextFocus"
+}

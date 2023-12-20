@@ -1,0 +1,65 @@
+{
+  "bin": "./build/main.mjs",
+  "dependencies": {
+    "yargs": "^17.7.2",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@types/yargs": "^17.0.32",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "esbuild": "^0.19.10",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-sort-destructure-keys": "^1.5.0",
+    "eslint-plugin-sort-exports": "^0.8.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "glob": "^10.3.10",
+    "prettier": "^3.1.1",
+    "prettier-plugin-tailwindcss": "^0.5.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.4.0",
+    "tsc-alias": "^1.8.8",
+    "typescript": "^5.3.3"
+  },
+  "exports": {
+    ".": {
+      "import": "./build/main.mjs",
+      "require": "./build/main.cjs",
+      "types": "./build/main.d.ts"
+    }
+  },
+  "files": [
+    ".eslintignore",
+    ".eslintrc.*",
+    ".vscode/*.json",
+    "build",
+    "esbuild.*",
+    "src/snippets/**/*",
+    "tsc-alias-replacer.cjs",
+    "tsconfig.*.json"
+  ],
+  "main": "./build/main.mjs",
+  "module": "./build/main.mjs",
+  "name": "@elie.rotenberg/snippets",
+  "private": false,
+  "scripts": {
+    "build": "npm run build:clean && npm run build:esbuild && npm run build:tsc && npm run build:eslint",
+    "build:clean": "rm -rf build",
+    "build:esbuild": "./esbuild.mjs && npm run build:tsc-alias && chmod u+x ./build/main.mjs",
+    "build:eslint": "ESLINT_CI=1 eslint src",
+    "build:tsc": "tsc",
+    "build:tsc-alias": "tsc-alias"
+  },
+  "type": "module",
+  "types": "./build/main.d.ts",
+  "version": "0.0.1"
+}
